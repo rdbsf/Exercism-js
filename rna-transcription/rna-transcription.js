@@ -5,14 +5,17 @@ export default function toRna(strand)
 
     const strandMap = {'G': 'C', 'C': 'G', 'T': 'A', 'A': 'U'};
 
-    const converted = strand.split('').map( char => strandMap[char] ).join('');
+    const dna = strand.split('');
 
-    if (converted.length !== strand.length)
-    {
-        throw 'Invalid input DNA.';
-    }
+    return dna.reduce((combined, char) => {
 
-    return converted;
+        if (!(char in strandMap))
+        {
+            throw 'Invalid input DNA.';
+        }
+        return combined + strandMap[char];
+
+    }, '');
 
 }
 
