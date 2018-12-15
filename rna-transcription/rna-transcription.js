@@ -5,9 +5,7 @@ export default function toRna(strand)
 
     const strandMap = {'G': 'C', 'C': 'G', 'T': 'A', 'A': 'U'};
 
-    const dna = strand.split('');
-
-    return dna.reduce((combined, char) => {
+    return strand.split('').reduce((combined, char) => {
 
         if (!(char in strandMap))
         {
